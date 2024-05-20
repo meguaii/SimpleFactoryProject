@@ -1,5 +1,3 @@
-
-
 #include <gtest/gtest.h>
 #include "../ConceptualExample.h"
 #include "../Documents.h"
@@ -7,81 +5,56 @@
 #include "../Points.h"
 #include "../Pizza.h"
 
-TEST(ShapeFactoryTest, CreateCircle) {
-    ConceptualExample::ShapeFactory factory;
-    auto shape = factory.getShape("circle");
-    ASSERT_NE(shape, nullptr);
-    ASSERT_EQ(shape->getName(), "Circle");
+TEST(SimpleFactoryTest, CreateProductA) {
+    ConceptualExample::SimpleFactory factory;
+    auto product = factory.createProduct(ConceptualExample::SimpleFactory::ProductType::A);
+    ASSERT_NE(product, nullptr);
+    ASSERT_EQ(product->getName(), "ProductA");
 }
 
-TEST(ShapeFactoryTest, CreateSquare) {
-    ConceptualExample::ShapeFactory factory;
-    auto shape = factory.getShape("square");
-    ASSERT_NE(shape, nullptr);
-    ASSERT_EQ(shape->getName(), "Square");
+TEST(SimpleFactoryTest, CreateProductB) {
+    ConceptualExample::SimpleFactory factory;
+    auto product = factory.createProduct(ConceptualExample::SimpleFactory::ProductType::B);
+    ASSERT_NE(product, nullptr);
+    ASSERT_EQ(product->getName(), "ProductB");
 }
 
-TEST(ShapeFactoryTest, CreateRectangle) {
-    ConceptualExample::ShapeFactory factory;
-    auto shape = factory.getShape("rectangle");
-    ASSERT_NE(shape, nullptr);
-    ASSERT_EQ(shape->getName(), "Rectangle");
+TEST(SimpleFactoryTest, InvalidProductType) {
+    ConceptualExample::SimpleFactory factory;
+    auto product = factory.createProduct(static_cast<ConceptualExample::SimpleFactory::ProductType>(-1));
+    ASSERT_EQ(product, nullptr);
 }
 
-TEST(DocumentFactoryTest, CreatePdf) {
-    DocumentFactory factory;
-    auto document = factory.createDocument("pdf");
+// Тест для класса Documents
+TEST(DocumentFactoryTest, CreateDocument) {
+    Documents::DocumentFactory factory;
+    auto document = factory.createDocument(Documents::DocumentType::PDF);
     ASSERT_NE(document, nullptr);
-    ASSERT_EQ(document->getName(), "PDF");
+    ASSERT_EQ(document->getType(), "PDF");
 }
 
-TEST(DocumentFactoryTest, CreateDoc) {
-    DocumentFactory factory;
-    auto document = factory.createDocument("doc");
-    ASSERT_NE(document, nullptr);
-    ASSERT_EQ(document->getName(), "DOC");
-}
-
-TEST(PhoneFactoryTest, CreateIPhone) {
-    PhoneFactory factory;
-    auto phone = factory.createPhone("iPhone");
+// Тест для класса MobilePhones
+TEST(MobilePhoneFactoryTest, CreatePhone) {
+    MobilePhones::PhoneFactory factory;
+    auto phone = factory.createPhone(MobilePhones::PhoneType::IPHONE);
     ASSERT_NE(phone, nullptr);
     ASSERT_EQ(phone->getName(), "iPhone");
 }
 
-TEST(PhoneFactoryTest, CreateSamsung) {
-    PhoneFactory factory;
-    auto phone = factory.createPhone("Samsung");
-    ASSERT_NE(phone, nullptr);
-    ASSERT_EQ(phone->getName(), "Samsung");
-}
-
-TEST(PointFactoryTest, CreateCartesian) {
-    PointFactory factory;
-    auto point = factory.createPoint("cartesian");
+// Тест для класса Points
+TEST(PointFactoryTest, CreatePoint) {
+    Points::PointFactory factory;
+    auto point = factory.createPoint(Points::PointType::CARTESIAN);
     ASSERT_NE(point, nullptr);
-    ASSERT_EQ(point->getName(), "Cartesian");
+    ASSERT_EQ(point->getType(), "Cartesian");
 }
 
-TEST(PointFactoryTest, CreatePolar) {
-    PointFactory factory;
-    auto point = factory.createPoint("polar");
-    ASSERT_NE(point, nullptr);
-    ASSERT_EQ(point->getName(), "Polar");
-}
-
-TEST(PizzaFactoryTest, CreateVeggiePizza) {
-    PizzaFactory factory;
-    auto pizza = factory.createPizza("veggie");
+// Тест для класса Pizza
+TEST(PizzaFactoryTest, CreatePizza) {
+    Pizza::PizzaFactory factory;
+    auto pizza = factory.createPizza(Pizza::PizzaType::MARGHERITA);
     ASSERT_NE(pizza, nullptr);
-    ASSERT_EQ(pizza->getName(), "Veggie Pizza");
-}
-
-TEST(PizzaFactoryTest, CreatePepperoniPizza) {
-    PizzaFactory factory;
-    auto pizza = factory.createPizza("pepperoni");
-    ASSERT_NE(pizza, nullptr);
-    ASSERT_EQ(pizza->getName(), "Pepperoni Pizza");
+    ASSERT_EQ(pizza->getName(), "Margherita");
 }
 
 int main(int argc, char **argv) {
