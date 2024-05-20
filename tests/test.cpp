@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "ConceptualExample.cpp"
+#include "SimpleFactory.h"
 
 TEST(SimpleFactoryTest, CreateProductA) {
     SimpleFactory factory;
