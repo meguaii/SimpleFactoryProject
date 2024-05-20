@@ -1,9 +1,9 @@
 #include <gtest/gtest.h>
-#include "../ConceptualExample.h"
-#include "../Documents.h"
-#include "../MobilePhones.h"
-#include "../Points.h"
-#include "../Pizza.h"
+#include "../SimpleFactoryProject/ConceptualExample.h"
+#include "../SimpleFactoryProject/Documents.h"
+#include "../SimpleFactoryProject/MobilePhones.h"
+#include "../SimpleFactoryProject/Points.h"
+#include "../SimpleFactoryProject/Pizza.h"
 
 TEST(ShapeFactoryTest, CreateCircle) {
     ConceptualExample::ShapeFactory factory;
