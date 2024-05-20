@@ -1,9 +1,9 @@
 #include <gtest/gtest.h>
-#include "../ConceptualExample.h"
-#include "../Documents.h"
-#include "../MobilePhones.h"
-#include "../Points.h"
-#include "../Pizza.h"
+#include "../ConceptualExample.cpp"
+#include "../Documents.cpp"
+#include "../MobilePhones.cpp"
+#include "../Points.cpp"
+#include "../Pizza.cpp"
 
 TEST(SimpleFactoryTest, CreateProductA) {
     ConceptualExample::SimpleFactory factory;
