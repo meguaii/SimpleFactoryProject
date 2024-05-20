@@ -1,18 +1,24 @@
 cmake_minimum_required(VERSION 3.10)
-project(SimpleFactory)
 
-set(CMAKE_CXX_STANDARD 17)
+project(SimpleFactoryProject)
 
-add_executable(SimpleFactory main.cpp)
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_subdirectory(src)
-add_subdirectory(tests)
+include_directories(${PROJECT_SOURCE_DIR})
+
+set(SOURCES
+    ConceptualExample.cpp
+    Documents.cpp
+    MobilePhones.cpp
+    Points.cpp
+    Pizza.cpp
+    Program.cpp
+   
+)
+
+add_executable(SimpleFactory ${SOURCES})
 
 enable_testing()
-add_test(NAME SimpleFactoryTests COMMAND SimpleFactoryTests)
-cmake_minimum_required(VERSION 3.10)
-project(SimpleFactory)
 
-set(CMAKE_CXX_STANDARD 17)
-
-add_executable(SimpleFactory main.cpp)
+add_subdirectory(tests)

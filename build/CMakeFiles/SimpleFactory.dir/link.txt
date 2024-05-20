@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/SimpleFactory.dir/ConceptualExample.cpp.o CMakeFiles/SimpleFactory.dir/Documents.cpp.o CMakeFiles/SimpleFactory.dir/MobilePhones.cpp.o CMakeFiles/SimpleFactory.dir/Points.cpp.o CMakeFiles/SimpleFactory.dir/Pizza.cpp.o CMakeFiles/SimpleFactory.dir/Program.cpp.o -o SimpleFactory 
