@@ -1,25 +1,85 @@
 #include <gtest/gtest.h>
-#include "ConceptualExample.cpp"
+#include "../ConceptualExample.h"
+#include "../Documents.h"
+#include "../MobilePhones.h"
+#include "../Points.h"
+#include "../Pizza.h"
 
-
-TEST(SimpleFactoryTest, CreateProductA) {
-    SimpleFactory factory;
-    auto product = factory.createProduct(SimpleFactory::ProductType::A);
-    ASSERT_NE(product, nullptr);
-    ASSERT_EQ(product->getName(), "ProductA");
+TEST(ShapeFactoryTest, CreateCircle) {
+    ConceptualExample::ShapeFactory factory;
+    auto shape = factory.getShape("circle");
+    ASSERT_NE(shape, nullptr);
+    ASSERT_EQ(shape->getName(), "Circle");
 }
 
-TEST(SimpleFactoryTest, CreateProductB) {
-    SimpleFactory factory;
-    auto product = factory.createProduct(SimpleFactory::ProductType::B);
-    ASSERT_NE(product, nullptr);
-    ASSERT_EQ(product->getName(), "ProductB");
+TEST(ShapeFactoryTest, CreateSquare) {
+    ConceptualExample::ShapeFactory factory;
+    auto shape = factory.getShape("square");
+    ASSERT_NE(shape, nullptr);
+    ASSERT_EQ(shape->getName(), "Square");
 }
 
-TEST(SimpleFactoryTest, InvalidProductType) {
-    SimpleFactory factory;
-    auto product = factory.createProduct(static_cast<SimpleFactory::ProductType>(-1));
-    ASSERT_EQ(product, nullptr);
+TEST(ShapeFactoryTest, CreateRectangle) {
+    ConceptualExample::ShapeFactory factory;
+    auto shape = factory.getShape("rectangle");
+    ASSERT_NE(shape, nullptr);
+    ASSERT_EQ(shape->getName(), "Rectangle");
+}
+
+TEST(DocumentFactoryTest, CreatePdf) {
+    DocumentFactory factory;
+    auto document = factory.createDocument("pdf");
+    ASSERT_NE(document, nullptr);
+    ASSERT_EQ(document->getName(), "PDF");
+}
+
+TEST(DocumentFactoryTest, CreateDoc) {
+    DocumentFactory factory;
+    auto document = factory.createDocument("doc");
+    ASSERT_NE(document, nullptr);
+    ASSERT_EQ(document->getName(), "DOC");
+}
+
+TEST(PhoneFactoryTest, CreateIPhone) {
+    PhoneFactory factory;
+    auto phone = factory.createPhone("iPhone");
+    ASSERT_NE(phone, nullptr);
+    ASSERT_EQ(phone->getName(), "iPhone");
+}
+
+TEST(PhoneFactoryTest, CreateSamsung) {
+    PhoneFactory factory;
+    auto phone = factory.createPhone("Samsung");
+    ASSERT_NE(phone, nullptr);
+    ASSERT_EQ(phone->getName(), "Samsung");
+}
+
+TEST(PointFactoryTest, CreateCartesian) {
+    PointFactory factory;
+    auto point = factory.createPoint("cartesian");
+    ASSERT_NE(point, nullptr);
+    ASSERT_EQ(point->getName(), "Cartesian");
+}
+
+TEST(PointFactoryTest, CreatePolar) {
+    PointFactory factory;
+    auto point = factory.createPoint("polar");
+    ASSERT_NE(point, nullptr);
+    ASSERT_EQ(point->getName(), "Polar");
+}
+
+TEST(PizzaFactoryTest, CreateVeggiePizza) {
+    PizzaFactory factory;
+    auto pizza = factory.createPizza("veggie");
+    ASSERT_NE(pizza, nullptr);
+    ASSERT_EQ(pizza->getName(), "Veggie Pizza");
+}
+
+TEST(PizzaFactoryTest, CreatePepperoniPizza) {
+    PizzaFactory factory;
+    auto pizza = factory.createPizza("pepperoni");
+    ASSERT_NE(pizza, nullptr);
+    ASSERT_EQ(pizza->getName(), "Pepperoni Pizza");
 }
 
 int main(int argc, char **argv) {
