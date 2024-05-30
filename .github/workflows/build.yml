@@ -35,14 +35,8 @@ jobs:
       shell: bash
       run: ctest -C $BUILD_TYPE
 
-    - name: Upload artifact SimpleFactoryProject
-      uses: actions/upload-artifact@v3
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
-        path: build/SimpleFactoryProject
-
-    - name: Upload artifact SimpleFactoryProjectTest
-      uses: actions/upload-artifact@v3
-      with:
-        name: my-artifact
-        path: build/tests/runTests
+        name: build-artifacts
+        path: ${{runner.workspace}}/build
